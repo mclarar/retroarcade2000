@@ -1,0 +1,12 @@
+.tic-tac-toe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .status {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  

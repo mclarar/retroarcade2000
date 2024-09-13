@@ -1,0 +1,31 @@
+.app {
+    text-align: center;
+  }
+  
+  .tictactoe .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+  }
+  
+  .square {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+  
+  .pong .ball, .pong .paddle {
+    position: absolute;
+  }
+  
+  .snake .snake-segment {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    position: absolute;
+  }
+  
+  .simon-says .buttons button {
+    width: 100px;
+    height: 100px;
+  }
+  

@@ -1,0 +1,25 @@
+.pong {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    border: 2px solid white;
+    margin: 20px auto;
+    
+    .ball {
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+    }
+  
+    .paddle {
+      width: 100px;
+      height: 20px;
+      background-color: white;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  
