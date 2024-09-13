@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "../pages/homepage/home";
-import TicTacToe from "../games/Tictactoe/Tictactoe";
 import { SnakeGame } from "../games/SnakeGame/SnakeGame";
 import { Pong } from "../games/Pong/Pong";
 import { Flapbird } from "../games/FlapBird/Flapbird";
+import { TicTacToe } from "../games/Tictactoe/Tictactoe";
 // import { PacManGame } from "../games/Pacman/Pacman";
 
 export const Rotas = () => {

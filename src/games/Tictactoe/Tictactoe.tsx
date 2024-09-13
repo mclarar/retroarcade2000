@@ -1,56 +1,30 @@
-import React, { useState } from 'react';
-import './TicTacToe.module.scss';
-import { Board } from './Board/Board';
+import { useState } from "react";
+import {Board}from "./Board/Board";
+import {Info} from "./Info/Info";
 
+export function TicTacToe() {
+  const [reset, setReset] = useState<boolean>(false);
+  const [winner, setWinner] = useState<string>("");
 
-const TicTacToe: React.FC = () => {
-  const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null));
-  const [xIsNext, setXIsNext] = useState(true);
-
-  const handleClick = (i: number) => {
-    const squaresCopy = squares.slice();
-    if (calculateWinner(squares) || squaresCopy[i]) {
-      return;
-    }
-    squaresCopy[i] = xIsNext ? 'X' : 'O';
-    setSquares(squaresCopy);
-    setXIsNext(!xIsNext);
+  const resetBoard = () => {
+    setReset(true);
   };
 
-  const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = 'Vencedor: ' + winner;
-  } else {
-    status = 'Próximo jogador: ' + (xIsNext ? 'X' : 'O');
-  }
-
   return (
-    <div className="tic-tac-toe">
-      <div className="status">{status}</div>
-      <Board squares={squares} onClick={handleClick} />
+    <div className="App">
+      <div className={`winner ${winner !== "" ? "" : "shrink"}`}>
+        <div className="winner-text">{winner}</div>
+
+        <button onClick={resetBoard}>Reset Board</button>
+      </div>
+
+      <Board
+        reset={reset}
+        setReset={setReset}
+        winner={winner}
+        setWinner={setWinner}
+      />
+      <Info />
     </div>
   );
-};
-
-function calculateWinner(squares: (string | null)[]): string | null {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
-    }
-  }
-  return null;
 }
-
-export default TicTacToe;
